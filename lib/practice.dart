@@ -48,9 +48,7 @@ void main() {
   //Accessing class properties using the . operator
   var stephen =
       Person(inputName: 'Stephen M Muroki', inputAge: 22, inputWeight: 63.3);
-  print(
-    stephen.name,
-  );
+  print(stephen.name);
   print(stephen.age);
   print(stephen.weight);
 }
