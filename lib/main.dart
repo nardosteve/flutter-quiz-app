@@ -51,7 +51,7 @@ class MyApp extends StatelessWidget {
               child: Text('Answer2'),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: () => print('Correct'),
               child: Text('Answer3'),
             ),
           ],
