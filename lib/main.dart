@@ -21,22 +21,22 @@ class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     //Return state object
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
 //Define the state of our widget State<PointToClass - MyApp> - this state belongs to this class
 //Sate is attached to the Widget
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
   //Creating a function
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(
       () {
-        questionIndex = questionIndex + 1;
+        _questionIndex = _questionIndex + 1;
       },
     );
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   //BuildContext - special type of object
@@ -64,14 +64,14 @@ class MyAppState extends State<MyApp> {
           children: [
             Text(
               //questions.elementAt(0),
-              questions[questionIndex],
+              questions[_questionIndex],
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: Text('Answer1'),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: Text('Answer2'),
             ),
             ElevatedButton(
