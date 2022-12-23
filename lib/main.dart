@@ -11,13 +11,32 @@ void main() {
 //Short hand for writing functions
 //void main => runApp(MyApp());
 
-//StatelessWidget - doesnt change
-//Stateful - changes overtime
+//StatelessWidget - doesnt change & StatefulWidget - changes overtime
 //Every widget has to extend stateless/stateful
-class MyApp extends StatelessWidget {
+
+//MyApp widget can be rebuild
+//External data passed changes only the widget data is updated
+class MyApp extends StatefulWidget {
+  //has to return a state object
+  @override
+  State<StatefulWidget> createState() {
+    //Return state object
+    return MyAppState();
+  }
+}
+
+//Define the state of our widget State<PointToClass - MyApp> - this state belongs to this class
+//Sate is attached to the Widget
+class MyAppState extends State<MyApp> {
+  var questionIndex = 0;
   //Creating a function
   void answerQuestion() {
-    print('Answer chosen!');
+    setState(
+      () {
+        questionIndex = questionIndex + 1;
+      },
+    );
+    print(questionIndex);
   }
 
   //BuildContext - special type of object
@@ -28,6 +47,8 @@ class MyApp extends StatelessWidget {
     var questions = [
       'Who is the president of USA?',
       'What are the colors of the Kenyan flag',
+      'Who is Nardosteve',
+      'What is the Highest Grossing movie as of (2022)?',
     ];
 
     //MaterialApp - based setup to combine th eapp into a real app
@@ -41,7 +62,10 @@ class MyApp extends StatelessWidget {
         ),
         body: Column(
           children: [
-            const Text('The question'),
+            Text(
+              //questions.elementAt(0),
+              questions[questionIndex],
+            ),
             ElevatedButton(
               onPressed: answerQuestion,
               child: Text('Answer1'),
