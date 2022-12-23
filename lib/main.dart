@@ -1,6 +1,8 @@
 //Get dependencies
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 void main() {
   //Main method
   //runApp - is a function that runs our flutter app and calls our build method
@@ -62,7 +64,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(
+            Question(
               //questions.elementAt(0),
               questions[_questionIndex],
             ),
