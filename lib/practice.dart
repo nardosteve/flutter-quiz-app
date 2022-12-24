@@ -30,9 +30,13 @@ class Person {
     age = inputAge;
     weight = inputWeight;
   }
-
   //Shorter method of creating a constructor
   //Person({this.name, this.age, this.weight});
+
+  //Another type of constructor
+  Person.veryOld(this.name) {
+    age = 22;
+  }
 }
 
 //Main method
@@ -48,7 +52,13 @@ void main() {
   //Accessing class properties using the . operator
   var stephen =
       Person(inputName: 'Stephen M Muroki', inputAge: 22, inputWeight: 63.3);
-  print(stephen.name);
+  print(
+    stephen.name,
+  );
   print(stephen.age);
   print(stephen.weight);
+
+  var newUser = Person.veryOld('Nardosteve');
+  print(newUser.name);
+  print(newUser.age);
 }
