@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import './question.dart';
+import './answer.dart';
 
 void main() {
   //Main method
@@ -68,33 +69,9 @@ class _MyAppState extends State<MyApp> {
               //questions.elementAt(0),
               questions[_questionIndex],
             ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text('Answer 1'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.red,
-                ),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: _answerQuestion,
-              child: Text('Answer 2'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.red,
-                ),
-              ),
-            ),
-            ElevatedButton(
-              onPressed: () => print('Correct'),
-              child: Text('Answer 3'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                  Colors.red,
-                ),
-              ),
-            ),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
+            Answer(_answerQuestion),
           ],
         ),
       ),
