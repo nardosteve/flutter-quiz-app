@@ -61,4 +61,22 @@ void main() {
   var newUser = Person.veryOld('Nardosteve');
   print(newUser.name);
   print(newUser.age);
+
+  //If statements
+  var isLoggedIn = false;
+  var userName = 'nardosteve';
+  var password = '12345';
+
+  //Helper variable
+  //var hasCorrectCredentials = userName == 'nardosteve' && password == '12345';
+
+  var age = 20;
+
+  if (userName == 'nardosteve' && (password == '12345' && isLoggedIn == true)) {
+    print('Logged In!');
+  } else if (password.length < 5) {
+    print("Your password is short");
+  } else {
+    print('Incorrect Credentials');
+  }
 }
