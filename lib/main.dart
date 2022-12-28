@@ -47,7 +47,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     //Creating a list/array
-    var questions = [
+    const questions = [
       {
         'questionText': 'Who is the current president of USA?',
         'answers': ['Joe Biden', 'Donald Trump', 'Barack Obama', 'George Bush'],
@@ -59,10 +59,10 @@ class _MyAppState extends State<MyApp> {
       {
         'questionText': 'What is the Highest Grossing movie as of (2022)?',
         'answers': [
-          'Avatar (2009)',
+          'Avatar',
           'Avengers',
-          'Iron-Man (2008)',
-          'Jurrasic World (2018)',
+          'Iron-Man',
+          'Jurrasic World',
         ],
       },
       {
