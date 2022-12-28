@@ -32,6 +32,30 @@ class MyApp extends StatefulWidget {
 //Sate is attached to the Widget
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
+  //Creating a list/array
+  final questions = const [
+    {
+      'questionText': 'Who is the current president of USA?',
+      'answers': ['Joe Biden', 'Donald Trump', 'Barack Obama', 'George Bush'],
+    },
+    {
+      'questionText': 'What are the colors of the Kenyan flag',
+      'answers': ['Red', 'Black', 'White', 'Green'],
+    },
+    {
+      'questionText': 'What is the Highest Grossing movie as of (2022)?',
+      'answers': [
+        'Avatar',
+        'Avengers',
+        'Iron-Man',
+        'Jurrasic World',
+      ],
+    },
+    {
+      'questionText': 'My favourite color',
+      'answers': ['Red', 'Black', 'Blue', 'Yellow'],
+    },
+  ];
   //Creating a function
   void _answerQuestion() {
     setState(
@@ -40,37 +64,18 @@ class _MyAppState extends State<MyApp> {
       },
     );
     print(_questionIndex);
+
+    //Check if there are any other question
+    if (_questionIndex < questions.length) {
+      //Do something
+      print("No More Question");
+    }
   }
 
   //BuildContext - special type of object
   //Build method is always responsible for returning a new widget
   @override
   Widget build(BuildContext context) {
-    //Creating a list/array
-    const questions = [
-      {
-        'questionText': 'Who is the current president of USA?',
-        'answers': ['Joe Biden', 'Donald Trump', 'Barack Obama', 'George Bush'],
-      },
-      {
-        'questionText': 'What are the colors of the Kenyan flag',
-        'answers': ['Red', 'Black', 'White', 'Green'],
-      },
-      {
-        'questionText': 'What is the Highest Grossing movie as of (2022)?',
-        'answers': [
-          'Avatar',
-          'Avengers',
-          'Iron-Man',
-          'Jurrasic World',
-        ],
-      },
-      {
-        'questionText': 'My favourite color',
-        'answers': ['Red', 'Black', 'Blue', 'Yellow'],
-      },
-    ];
-
     //MaterialApp - based setup to combine th eapp into a real app
     //Constructor name parameters
     //Scaffold (widget) - base page design
