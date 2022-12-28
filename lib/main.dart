@@ -48,10 +48,27 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     //Creating a list/array
     var questions = [
-      'Who is the president of USA?',
-      'What are the colors of the Kenyan flag',
-      'Who is Nardosteve',
-      'What is the Highest Grossing movie as of (2022)?',
+      {
+        'questionText': 'Who is the current president of USA?',
+        'answers': ['Joe Biden', 'Donald Trump', 'Barack Obama', 'George Bush'],
+      },
+      {
+        'questionText': 'What are the colors of the Kenyan flag',
+        'answers': ['Red', 'Black', 'White', 'Green'],
+      },
+      {
+        'questionText': 'What is the Highest Grossing movie as of (2022)?',
+        'answers': [
+          'Avatar (2009)',
+          'Avengers',
+          'Iron-Man (2008)',
+          'Jurrasic World (2018)',
+        ],
+      },
+      {
+        'questionText': 'My favourite color',
+        'answers': ['Red', 'Black', 'Blue', 'Yellow'],
+      },
     ];
 
     //MaterialApp - based setup to combine th eapp into a real app
@@ -67,11 +84,14 @@ class _MyAppState extends State<MyApp> {
           children: [
             Question(
               //questions.elementAt(0),
-              questions[_questionIndex],
+              questions[_questionIndex]['questionText'] as String,
             ),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            //Answer(_answerQuestion),
+            // ... Spread operator take a list and pull values out of the list
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
+              return Answer(_answerQuestion, answer);
+            }).toList(),
           ],
         ),
       ),
