@@ -37,24 +37,39 @@ class _MyAppState extends State<MyApp> {
   final _questions = const [
     {
       'questionText': 'Who is the current president of USA?',
-      'answers': ['Joe Biden', 'Donald Trump', 'Barack Obama', 'George Bush'],
+      'answers': [
+        {'text': 'Donald Trump', 'score': 0},
+        {'text': 'Joe Biden', 'score': 100},
+        {'text': 'Barack Obama', 'score': 0},
+        {'text': 'George Bush', 'score': 0},
+      ],
     },
     {
       'questionText': 'What are the colors of the Kenyan flag',
-      'answers': ['Red', 'Black', 'White', 'Green'],
+      'answers': [
+        {'text': 'yellow', 'score': 0},
+        {'text': 'Red', 'score': 100},
+        {'text': 'Black', 'score': 100},
+        {'text': 'brow', 'score': 0},
+      ],
     },
     {
       'questionText': 'What is the Highest Grossing movie as of (2022)?',
       'answers': [
-        'Avatar',
-        'Avengers',
-        'Iron-Man',
-        'Jurrasic World',
+        {'text': 'Avatar', 'score': 100},
+        {'text': 'Avengers', 'score': 0},
+        {'text': 'Iron-Man', 'score': 0},
+        {'text': 'Jurrasic World', 'score': 0},
       ],
     },
     {
-      'questionText': 'My favourite color',
-      'answers': ['Red', 'Black', 'Blue', 'Yellow'],
+      'questionText': 'Most Valuable Tech company',
+      'answers': [
+        {'text': 'Spotify', '': 0},
+        {'text': 'Apple', '': 100},
+        {'text': 'Microsoft', '': 0},
+        {'text': 'AirBnb', '': 0},
+      ],
     },
   ];
   //Creating a function
