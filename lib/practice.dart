@@ -79,4 +79,13 @@ void main() {
   } else {
     print('Incorrect Credentials');
   }
+
+  //Question mark - it may or may not be null
+  String? userName = 'nardosteve';
+  var link = 'www.youtube.com/nardosteve';
+
+  //Check isEmpty
+  if (userName != null) {
+    //Do something
+  }
 }
