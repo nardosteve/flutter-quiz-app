@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
+  final VoidCallback resetHandler;
 
-  Result(this.resultScore);
+  Result(this.resultScore, this.resetHandler);
 
   //Geter
   String get outputText {
@@ -30,13 +31,25 @@ class Result extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        outputText,
-        style: TextStyle(
-          fontSize: 20,
-          color: Colors.red,
-          fontWeight: FontWeight.bold,
-        ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            outputText,
+            style: TextStyle(
+              fontSize: 20,
+              color: Colors.red,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 10),
+            child: ElevatedButton(
+              onPressed: resetHandler,
+              child: Text("Restart"),
+            ),
+          )
+        ],
       ),
     );
   }
