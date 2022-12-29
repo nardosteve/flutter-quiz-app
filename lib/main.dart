@@ -32,7 +32,6 @@ class MyApp extends StatefulWidget {
 //Define the state of our widget State<PointToClass - MyApp> - this state belongs to this class
 //Sate is attached to the Widget
 class _MyAppState extends State<MyApp> {
-  var _questionIndex = 0;
   //Creating a list/array
   final _questions = const [
     {
@@ -65,15 +64,22 @@ class _MyAppState extends State<MyApp> {
     {
       'questionText': 'Most Valuable Tech company',
       'answers': [
-        {'text': 'Spotify', '': 0},
-        {'text': 'Apple', '': 100},
-        {'text': 'Microsoft', '': 0},
-        {'text': 'AirBnb', '': 0},
+        {'text': 'Spotify', 'score': 0},
+        {'text': 'Apple', 'score': 100},
+        {'text': 'Microsoft', 'score': 0},
+        {'text': 'AirBnb', 'score': 0},
       ],
     },
   ];
+
+  var _questionIndex = 0;
+  int _totalScore = 0;
+
   //Creating a function
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    //Add Score
+    _totalScore += score;
+
     setState(
       () {
         _questionIndex = _questionIndex + 1;
@@ -107,7 +113,7 @@ class _MyAppState extends State<MyApp> {
                 answerQuestion: _answerQuestion,
                 questionIndex: _questionIndex,
                 questions: _questions)
-            : Result(),
+            : Result(_totalScore),
       ),
     );
   }
