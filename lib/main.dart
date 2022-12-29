@@ -1,8 +1,9 @@
 //Get dependencies
 import 'package:flutter/material.dart';
 
-import './question.dart';
+import './quiz.dart';
 import './answer.dart';
+import './result.dart';
 
 void main() {
   //Main method
@@ -33,7 +34,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
   //Creating a list/array
-  final questions = const [
+  final _questions = const [
     {
       'questionText': 'Who is the current president of USA?',
       'answers': ['Joe Biden', 'Donald Trump', 'Barack Obama', 'George Bush'],
@@ -66,8 +67,7 @@ class _MyAppState extends State<MyApp> {
     print(_questionIndex);
 
     //Check if there are any other question
-    if (_questionIndex < questions.length) {
-      //Do something
+    if (_questionIndex < _questions.length) {
       print("We have More Questions :-)");
     } else {
       print("No More Questions :-(");
@@ -87,24 +87,12 @@ class _MyAppState extends State<MyApp> {
           title: Text('Home'),
           backgroundColor: Colors.red,
         ),
-        body: _questionIndex < questions.length
-            ? Column(
-                children: [
-                  Question(
-                    //questions.elementAt(0),
-                    questions[_questionIndex]['questionText'] as String,
-                  ),
-                  //Answer(_answerQuestion),
-                  // ... Spread operator take a list and pull values out of the list
-                  ...(questions[_questionIndex]['answers'] as List<String>)
-                      .map((answer) {
-                    return Answer(_answerQuestion, answer);
-                  }).toList(),
-                ],
-              )
-            : Center(
-                child: Text("You did it!"),
-              ),
+        body: _questionIndex < _questions.length
+            ? Quiz(
+                answerQuestion: _answerQuestion,
+                questionIndex: _questionIndex,
+                questions: _questions)
+            : Result(),
       ),
     );
   }
