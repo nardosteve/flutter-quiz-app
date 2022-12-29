@@ -81,11 +81,11 @@ void main() {
   }
 
   //Question mark - it may or may not be null
-  String? userName = 'nardosteve';
+  String? accountName = 'nardosteve';
   var link = 'www.youtube.com/nardosteve';
 
   //Check isEmpty
-  if (userName != null) {
+  if (accountName != null) {
     //Do something
   }
 }
